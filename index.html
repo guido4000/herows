@@ -22,9 +22,18 @@
       var ws = new WebSocket(host);
       ws.onmessage = function (event) {
         var li = document.createElement('li');
+        var y = document.querySelector('#pings').childNodes[0];
         li.innerHTML = JSON.parse(event.data);
-        document.querySelector('#pings').appendChild(li);
-        document.querySelector('#pings').removeChild(document.querySelector('#pings').childNodes[0]);
+        // document.querySelector('#pings').appendChild(li);
+        // document.querySelector('#pings').removeChild(document.querySelector('#pings').childNodes[0]);
+
+        document.querySelector('#pings').replaceChild(li, y);
+        
+        // if (y) {
+        //   document.querySelector('#pings').replaceChild(li, y);
+        // } else {
+        //   document.querySelector('#pings').appendChild(li);
+        // }
       };
     </script>
   </head>
