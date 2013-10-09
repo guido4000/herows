@@ -23,7 +23,8 @@
       ws.onmessage = function (event) {
         var li = document.createElement('li');
         li.innerHTML = JSON.parse(event.data);
-        document.querySelector('#pings').removeChild(document.querySelector('#pings').firstChild).appendChild(li);
+        document.querySelector('#pings').appendChild(li);
+        document.querySelector('#pings').removeChild(document.querySelector('#pings').childNodes[0]);
       };
     </script>
   </head>
